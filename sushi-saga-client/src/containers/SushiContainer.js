@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import MoreButton from '../components/MoreButton'
-import { Sushi } from '../components/Sushi.js'
+import Sushi from '../components/Sushi'
 import { connect } from 'react-redux'
 
 const SushiContainer = ({ sushis }) => {
   console.log({ sushis })
-
   return (
     <Fragment>
       <div className='belt'>

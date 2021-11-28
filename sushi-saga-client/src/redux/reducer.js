@@ -15,6 +15,13 @@ export function reducer(state = initialState, action) {
     case 'GET_SUSHIS':
       console.log(action)
       return { ...state, sushis: action.payload }
+    case 'EAT_SUSHI':
+      console.log(action)
+      const newSushis = state.sushis.map((sushi) =>
+        sushi.id === action.payload ? { ...sushi, eaten: true } : sushi
+      )
+      return { ...state, sushis: newSushis }
+
     default:
       return { ...state }
   }
