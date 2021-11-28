@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { moreSushi } from '../redux/actionCreators'
 
 const MoreButton = (props) => {
-    return <button onClick={/* Fill me in! */ null}>
-            More sushi!
-          </button>
+  return <button onClick={props.moreSushi}>More sushi!</button>
 }
 
-export default MoreButton
+export default connect(null, { moreSushi })(MoreButton)

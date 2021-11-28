@@ -1,23 +1,18 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { getSushis } from '../redux/actionCreators'
 
-const Sushi = (props) => {
+export const Sushi = ({ name, price, img_url, id }) => {
+  console.log({ name, price, img_url, id })
   return (
-    <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
-          /* Tell me if this sushi has been eaten! */ 
-          false ?
-            null
-          :
-            <img src={/* Give me an image source! */ } width="100%" />
-        }
+    <div className='sushi'>
+      <div className='plate'>
+        {false ? null : <img src={img_url} alt='cute sushi' width='100%' />}
       </div>
-      <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+      <h4 className='sushi-details'>
+        {name} - ${price}
       </h4>
     </div>
   )
 }
-
-export default Sushi
+export default connect(null, { getSushis })(Sushi)
