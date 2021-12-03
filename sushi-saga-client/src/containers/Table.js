@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import { eatenSushis } from '../services/sushiServices'
+import { eatenSushis, amountSpent } from '../services/sushiServices'
 
 const Table = (props) => {
   const renderPlates = (array) => {
@@ -11,7 +11,7 @@ const Table = (props) => {
 
   return (
     <Fragment>
-      <h1 className='remaining'>You have: ${100} remaining!</h1>
+      <h1 className='remaining'>You have: ${props.money}!</h1>
       <div className='table'>
         <div className='stack'>
           {
@@ -31,6 +31,7 @@ const Table = (props) => {
 function mapStateToProps(state) {
   return {
     eatenSushis: eatenSushis(state.sushis),
+    money: state.initialCash - amountSpent(state.sushis),
   }
 }
 

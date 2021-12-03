@@ -1,6 +1,7 @@
 const initialState = {
   sushis: [],
   offset: 1,
+  initialCash: 100,
 }
 
 export function reducer(state = initialState, action) {
