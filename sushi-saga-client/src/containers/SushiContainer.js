@@ -3,8 +3,9 @@ import MoreButton from '../components/MoreButton'
 import Sushi from '../components/Sushi'
 import { connect } from 'react-redux'
 
-const SushiContainer = ({ sushis }) => {
-  console.log({ sushis })
+const SushiContainer = (props) => {
+  const { sushis } = props
+
   return (
     <Fragment>
       <div className='belt'>

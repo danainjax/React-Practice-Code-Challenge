@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react'
+import { connect } from 'react-redux'
+import { eatenSushis } from '../services/sushiServices'
 
 const Table = (props) => {
   const renderPlates = (array) => {
@@ -9,9 +11,7 @@ const Table = (props) => {
 
   return (
     <Fragment>
-      <h1 className='remaining'>
-        You have: ${/* Give me how much money I have left */} remaining!
-      </h1>
+      <h1 className='remaining'>You have: ${100} remaining!</h1>
       <div className='table'>
         <div className='stack'>
           {
@@ -20,7 +20,7 @@ const Table = (props) => {
                and renders an empty plate
                for every element in the array
             */
-            renderPlates([])
+            renderPlates(props.eatenSushis)
           }
         </div>
       </div>
@@ -28,4 +28,10 @@ const Table = (props) => {
   )
 }
 
-export default Table
+function mapStateToProps(state) {
+  return {
+    eatenSushis: eatenSushis(state.sushis),
+  }
+}
+
+export default connect(mapStateToProps)(Table)

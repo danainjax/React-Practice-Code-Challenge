@@ -2,10 +2,11 @@ import React, { Fragment } from 'react'
 import { eatSushi } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 
-const Sushi = ({ name, price, img_url, id, eaten, eatSushi }) => {
+const Sushi = (props) => {
+  const { name, price, img_url, id, eaten, eatSushi } = props
   return (
     <div className='sushi'>
-      <div className='plate' onClick={() => eatSushi(id)}>
+      <div className='plate' onClick={() => props.eatSushi(id)}>
         {eaten ? null : <img src={img_url} width='100%' />}
       </div>
       <h4 className='sushi-details'>
